@@ -9,7 +9,11 @@ export const buildSwagger = (
     data: ISwagger,
     controllerMap: ControllerMapType,
     globalResponses: GlobalResponseType
-): ISwagger => {
+): {
+    data: ISwagger;
+    controllerMap: ControllerMapType;
+    globalResponses: GlobalResponseType;
+} => {
     for (const controllerIndex in controllerMap) {
         const controller: IController = controllerMap[controllerIndex];
         const controllerPath = controller.path ?? '/';
@@ -24,7 +28,7 @@ export const buildSwagger = (
             } as ISwaggerTag);
         }
 
-        if (!Boolean(controllerArr.length)) {
+        if (!Boolean(controllerArr?.length)) {
             const swaggerPath: ISwaggerPath = {};
             data.paths ??= {};
             data.paths[controllerPath] = swaggerPath;
@@ -50,5 +54,9 @@ export const buildSwagger = (
         }
     }
 
-    return data;
+    return {
+        data,
+        controllerMap,
+        globalResponses
+    };
 }

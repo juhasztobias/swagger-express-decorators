@@ -1,7 +1,11 @@
 import { IApiModelArgs } from '.';
 import { IApiModelPropertyArgs } from './decorators/api-model-property.decorator';
 import { IApiPathArgs } from './decorators/api-path.decorator';
-
+import { SwaggerDefinitionConstant } from './enums/swagger-definition.constant';
+import { buildOperationResponses } from './lib/operations/operation-responses.build';
+import { buildOperation } from './lib/operations/operation.build';
+import { buildRef } from './lib/ref.build';
+import { buildSwagger } from './lib/swagger.build';
 import {
     IApiOperationArgsBase,
     IApiOperationArgsBaseResponse,
@@ -17,12 +21,6 @@ import {
     ISwaggerSecurityDefinition,
     ValidIPathMethods
 } from './types';
-
-import { SwaggerDefinitionConstant } from './enums/swagger-definition.constant';
-import { buildOperationResponses } from './lib/operations/operation-responses.build';
-import { buildOperation } from './lib/operations/operation.build';
-import { buildRef } from './lib/ref.build';
-import { buildSwagger } from './lib/swagger.build';
 import { capitalize } from './utils/capitalize.string';
 
 export class SwaggerService {
@@ -159,7 +157,15 @@ export class SwaggerService {
     }
 
     public buildSwagger(): void {
-        this.data = buildSwagger(this.data, this.controllerMap, this.globalResponses);
+        let {
+            data,
+            controllerMap,
+            globalResponses,
+        } = buildSwagger(this.data, this.controllerMap, this.globalResponses);
+
+        this.data = data;
+        this.controllerMap = controllerMap;
+        this.globalResponses = globalResponses;
     }
 
     public addApiModelProperty(
