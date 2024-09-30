@@ -1,4 +1,40 @@
 <a name="1.0.1"></a>
+# [2.0.0-alpha.3](2024-09-30)
+## Features
+### Breaking changes: 
+- Removed lodash as a dependency
+- Created swaggerJSON function that can be used to generate the swagger JSON object and then returned to the client.
+
+### Example of using swaggerJSON function with express:
+```js
+import { swaggerJSON } from 'swagger-express-decorators';
+import swaggerUi from 'swagger-ui-express';
+import express from 'express';
+import cors from 'cors';
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+app.get('/api-docs/swagger.json', async (req, res) => {
+  const swaggerJSON = await swaggerJSON({
+    info: {
+      title: 'My API',
+      version: '1.0.0',
+    },
+  });
+  res.json(swaggerJSON);
+});
+
+app.use('/api-docs/swagger', swaggerUi.serve, swaggerUi.setup(
+ null,
+ null,
+ null,
+ null,
+ null,
+ '/api-docs/swagger.json'
+));
+```
 # [2.0.0](2024-09-30)
 ## Features
 ### Breaking changes: 
