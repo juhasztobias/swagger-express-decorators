@@ -6,7 +6,7 @@ Automatically generate and serve swagger.json v2.0. Based on and forked from [ol
 ## Breaking changes
 - Removed unused dependencies
 - Refactored code
-- Made it work when using Babel, see more in [babel-plugin-transform-decorators-legacy]() [babel-plugins-proposal-decorators]()
+- Made it work when using Babel, see more in [babel-plugins-proposal-decorators](https://babeljs.io/docs/en/babel-plugin-proposal-decorators)
 - We removed lodash as a dependency
 - Created swaggerJSON function that can be used to generate the swagger JSON object and then returned to the client with any framework, since it's only returning the swagger JSON object, see [swaggerJSON](./wiki/swagger-json.md)
 
