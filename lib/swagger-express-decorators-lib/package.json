@@ -1,6 +1,6 @@
 {
     "name": "swagger-express-decorators",
-    "version": "2.0.0",
+    "version": "2.0.0-alpha.2",
     "description": "Generate and serve swagger.json",
     "main": "index.js",
     "types": "index.d.ts",
@@ -9,7 +9,7 @@
         "type": "git",
         "url": "git+https://github.com/juhasztobias/swagger-express-decorators.git"
     },
-    "author": "Olivier LIN-SI-CHENG",
+    "author": "Tobias Juhasz",
     "license": "MIT",
     "keywords": [
         "swagger",

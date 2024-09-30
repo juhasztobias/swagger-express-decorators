@@ -73,7 +73,7 @@ export class SwaggerService {
     }
 
     public getData(): ISwagger {
-        return {...this.data};
+        return { ...this.data };
     }
 
     public setDefinitions(models: {
@@ -123,7 +123,7 @@ export class SwaggerService {
             definitions[modelIndex] = newDefinition;
         }
 
-        this.data.definitions = {...this.data.definitions, ...definitions};
+        this.data.definitions = { ...this.data.definitions, ...definitions };
     }
 
     public setGlobalResponses(globalResponses: {
@@ -149,7 +149,7 @@ export class SwaggerService {
                 currentController.deprecated = args.deprecated;
             }
         }
-        this.controllerMap[target.name] = {...this.controllerMap[target.name], ...currentController};
+        this.controllerMap[target.name] = { ...this.controllerMap[target.name], ...currentController };
     }
 
     public addSecurityDefinitions(securityDefinitions: {
@@ -179,7 +179,7 @@ export class SwaggerService {
         }
 
         const swaggerBuildDefinitionModelProperty: ISwaggerBuildDefinitionModelProperty = {
-            type: propertyType.toLowerCase(),
+            type: propertyType?.toLowerCase(),
         };
         if (args) {
             swaggerBuildDefinitionModelProperty.required = args.required;
@@ -218,7 +218,7 @@ export class SwaggerService {
             swaggerBuildDefinitionModel.description = args.description;
             if (args.name) {
                 const name: string = capitalize(args.name);
-                this.modelsMap[name] = {...this.modelsMap[definitionKey]};
+                this.modelsMap[name] = { ...this.modelsMap[definitionKey] };
                 if (name !== definitionKey) {
                     delete this.modelsMap[definitionKey];
                     delete this.data.definitions[definitionKey];

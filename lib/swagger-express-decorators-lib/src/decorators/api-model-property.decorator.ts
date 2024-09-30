@@ -65,7 +65,7 @@ export function ApiModelProperty(
                     'design:type',
                     target,
                     propertyKey
-                ).name;
+                )?.name;
             } catch (err) {
                 if (err.message === "Cannot read property 'name' of undefined") {
                     throw new Error(
