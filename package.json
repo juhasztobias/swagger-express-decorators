@@ -17,9 +17,9 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/olivierlsc/swagger-express-decorators.git"
+        "url": "git+https://github.com/juhasztobias/swagger-express-decorators.git"
     },
-    "author": "Olivier LIN-SI-CHENG",
+    "author": "Tobias Juhasz",
     "license": "MIT",
     "keywords": [
         "inversify",
@@ -39,9 +39,9 @@
         "rest"
     ],
     "bugs": {
-        "url": "https://github.com/olivierlsc/swagger-express-decorators/issues"
+        "url": "https://github.com/juhasztobias/swagger-express-decorators/issues"
     },
-    "homepage": "https://github.com/olivierlsc/swagger-express-decorators#readme",
+    "homepage": "https://github.com/juhasztobias/swagger-express-decorators#readme",
     "dependencies": {
         "@types/body-parser": "^1.19.0",
         "@types/compression": "1.7.0",

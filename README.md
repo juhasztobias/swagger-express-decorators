@@ -1,7 +1,22 @@
 ![](wiki/img/logo.png)
 
 # swagger-express-decorators
-Automatically generate and serve swagger.json v2.0.
+Automatically generate and serve swagger.json v2.0. Based on and forked from [olivierlsc/swagger-express-ts](https://github.com/olivierlsc/swagger-express-ts).
+
+## Breaking changes
+- Removed unused dependencies
+- Refactored code
+- Made it work when using Babel, see more in [babel-plugin-transform-decorators-legacy]() [babel-plugins-proposal-decorators]()
+
+For more information on the changes, see [CHANGELOG.md](./CHANGELOG.md).
+
+## Next steps
+- Add support for OpenAPI 3.0
+- Add support for all frameworks
+- Improve test coverage to ensure stability
+- Maintain code examples and documentation
+
+We are going to work on these items in the near future. Feel free to contribute to the project by submitting pull requests or giving us feedback.
 
 ## Getting started
 
@@ -298,7 +313,7 @@ Test it on url "/api-docs/swagger".
 
 ## Project example
 
-You can quickly test swagger-express-decorators with the project example [example-swagger-express-decorators](https://github.com/olivierlsc/example-swagger-express-decorators).
+You can quickly test swagger-express-decorators with the project example [example-swagger-express-decorators](https://github.com/juhasztobias/example-swagger-express-decorators).
 
 ## Features and API
 
@@ -315,8 +330,4 @@ You can quickly test swagger-express-decorators with the project example [exampl
 
 ## For any questions, suggestions, or feature requests
 
-[Please file an issue](https://github.com/olivierlsc/swagger-express-decorators/issues)!
-
-## Help wanted
-
-swagger-express-decorators wants additional maintainers! To maintain and continue to develop this young library, [Please post in this issue](https://github.com/olivierlsc/swagger-express-decorators/issues/34).
+[Please file an issue](https://github.com/juhasztobias/swagger-express-decorators/issues)!

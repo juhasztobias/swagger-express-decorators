@@ -21,4 +21,4 @@ Welcome to the SwaggerExpressTS wiki!
 
 ## Test
 
-- [example-swagger-express-decorators](https://github.com/olivierlsc/example-swagger-express-decorators)
+- [example-swagger-express-decorators](https://github.com/juhasztobias/example-swagger-express-decorators)

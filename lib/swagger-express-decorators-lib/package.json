@@ -7,7 +7,7 @@
     "typings": "index.d.ts",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/olivierlsc/swagger-express-decorators.git"
+        "url": "git+https://github.com/juhasztobias/swagger-express-decorators.git"
     },
     "author": "Olivier LIN-SI-CHENG",
     "license": "MIT",
@@ -27,9 +27,9 @@
         "rest"
     ],
     "bugs": {
-        "url": "https://github.com/olivierlsc/swagger-express-decorators/issues"
+        "url": "https://github.com/juhasztobias/swagger-express-decorators/issues"
     },
-    "homepage": "https://github.com/olivierlsc/swagger-express-decorators#readme",
+    "homepage": "https://github.com/juhasztobias/swagger-express-decorators#readme",
     "peerDependencies": {
         "@types/express": "^4.17.11",
         "@types/lodash": "^4.14.168",

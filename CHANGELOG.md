@@ -1,10 +1,11 @@
 <a name="1.0.1"></a>
 # [2.0.0](2024-09-30)
 ## Features
-Breaking changes:
+### Breaking changes: 
 - Removed unused dependencies
 - Refactored code
 - Made it work when using Babel, see more in [babel-plugin-transform-decorators-legacy]() [babel-plugins-proposal-decorators]()
+
 
 # [1.0.1](2018-12-4)
 
