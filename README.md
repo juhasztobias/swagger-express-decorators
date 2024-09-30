@@ -1,5 +1,7 @@
 ![](wiki/img/logo.png)
 
+![[npm version](https://badge.fury.io/js/swagger-express-decorators.svg)](https://npmjs.org/package/swagger-express-decorators)
+
 # swagger-express-decorators
 Automatically generate and serve swagger.json v2.0. Based on and forked from [olivierlsc/swagger-express-ts](https://github.com/olivierlsc/swagger-express-ts).
 
