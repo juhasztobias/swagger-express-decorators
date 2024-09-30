@@ -1,5 +1,4 @@
-import { IApiOperationArgsBaseResponse } from "../../i-api-operation-args.base";
-import { ISwaggerOperationResponse } from "../../i-swagger";
+import { IApiOperationArgsBaseResponse, ISwaggerOperationResponse } from "../../types";
 import { getResponseDescription } from "../response.description";
 import { buildSchema } from "../schema.build";
 
@@ -12,9 +11,9 @@ export const buildOperationResponses = (responses: {
 }): ISwaggerOperationResponses =>
     Object.entries(responses)
         .reduce((swaggerOperationResponses, [responseIndex, response]) => {
-            swaggerOperationResponses[responseIndex] = buildSwaggerOperationResponse([responseIndex, response]);
+            swaggerOperationResponses[`${responseIndex}`] = buildSwaggerOperationResponse([responseIndex, response]);
             return swaggerOperationResponses;
-        }, {});
+        }, {} as ISwaggerOperationResponses);
 
 const buildSwaggerOperationResponse = ([responseIndex, response]: [string, IApiOperationArgsBaseResponse]): ISwaggerOperationResponse => {
     return {

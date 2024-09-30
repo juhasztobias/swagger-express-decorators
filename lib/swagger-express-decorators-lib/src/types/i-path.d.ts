@@ -8,3 +8,4 @@ export type IPath = {
     patch?: ISwaggerOperation;
     delete?: ISwaggerOperation;
 }
+export type ValidIPathMethods = 'get' | 'post' | 'put' | 'patch' | 'delete';

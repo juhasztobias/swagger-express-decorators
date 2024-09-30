@@ -1,5 +1,5 @@
 {
-    "name": "swagger-express-ts",
+    "name": "swagger-express-decorators",
     "version": "1.1.1",
     "description": "Generate and serve swagger.json",
     "main": "index.js",
@@ -17,7 +17,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/olivierlsc/swagger-express-ts.git"
+        "url": "git+https://github.com/olivierlsc/swagger-express-decorators.git"
     },
     "author": "Olivier LIN-SI-CHENG",
     "license": "MIT",
@@ -39,9 +39,9 @@
         "rest"
     ],
     "bugs": {
-        "url": "https://github.com/olivierlsc/swagger-express-ts/issues"
+        "url": "https://github.com/olivierlsc/swagger-express-decorators/issues"
     },
-    "homepage": "https://github.com/olivierlsc/swagger-express-ts#readme",
+    "homepage": "https://github.com/olivierlsc/swagger-express-decorators#readme",
     "dependencies": {
         "@types/body-parser": "^1.19.0",
         "@types/compression": "1.7.0",
@@ -53,40 +53,38 @@
         "compression": "^1.7.4",
         "express": "^4.17.1",
         "helmet": "^4.6.0",
-        "inversify": "^4.13.0",
-        "inversify-express-utils": "^4.2.2",
+        "inversify": "^6.0.2",
+        "inversify-express-utils": "^6.4.6",
         "lodash": "^4.17.21",
-        "reflect-metadata": "^0.1.13",
+        "reflect-metadata": "^0.2.2",
         "save": "^2.4.0"
     },
     "devDependencies": {
         "@types/chai": "^4.2.18",
         "@types/mocha": "^8.2.2",
-        "@types/sinon": "^9.0.11",
         "chai": "^4.3.4",
-        "gulp": "^4.0.2",
+        "gulp": "^5.0.0",
         "gulp-clean": "^0.4.0",
-        "gulp-sourcemaps": "^3.0.0",
+        "gulp-sourcemaps": "^2.6.5",
         "gulp-tslint": "^8.1.4",
         "gulp-typescript": "^5.0.1",
-        "mocha": "^8.4.0",
+        "mocha": "^10.7.3",
         "nodemon": "^2.0.7",
         "nyc": "^15.1.0",
         "prettier": "2.2.1",
         "pretty-quick": "^3.1.1",
         "rimraf": "^3.0.2",
-        "sinon": "^10.0.0",
         "source-map-support": "^0.5.19",
-        "swagger-ui-dist": "^3.50.0",
+        "swagger-ui-dist": "^5.17.14",
         "ts-node": "^9.1.1",
         "tslint": "^6.1.3",
         "tslint-config-prettier": "^1.18.0",
-        "typescript": "^4.3.4"
+        "typescript": "^5.6.2"
     },
     "nyc": {
         "include": [
             "src/**/*.ts",
-            "lib/swagger-express-ts-lib/src/**/*.ts"
+            "lib/swagger-express-decorators-lib/src/**/*.ts"
         ],
         "exclude": [
             "src/index.ts"

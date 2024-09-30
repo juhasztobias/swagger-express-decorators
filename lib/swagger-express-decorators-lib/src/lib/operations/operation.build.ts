@@ -1,7 +1,5 @@
-import _ from "lodash";
 import { SwaggerDefinitionConstant } from "../..";
-import { IApiOperationArgsBase } from "../../i-api-operation-args.base";
-import { ISwaggerOperation } from "../../i-swagger";
+import { IApiOperationArgsBase, ISwaggerOperation } from "../../types";
 import { buildBodyOperationParameter } from "../parameters/body.parameter.build";
 import { buildParameters } from "../parameters/parameters.build";
 import { buildOperationResponses } from "./operation-responses.build";
@@ -12,8 +10,7 @@ export const buildOperation = (
     target: any,
     propertyKey: string | symbol
 ): ISwaggerOperation => {
-
-    const argsCopy = _.cloneDeep(args) as
+    const argsCopy = { ...args } as
         Omit<IApiOperationArgsBase,
             | 'responses'
             | 'security'

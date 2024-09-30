@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { IApiModelArgs } from '.';
 import { IApiModelPropertyArgs } from './decorators/api-model-property.decorator';
 import { IApiPathArgs } from './decorators/api-path.decorator';
@@ -15,7 +14,8 @@ import {
     ISwaggerDefinitionProperty,
     ISwaggerDefinitionPropertyItems,
     ISwaggerInfo,
-    ISwaggerSecurityDefinition
+    ISwaggerSecurityDefinition,
+    ValidIPathMethods
 } from './types';
 
 import { SwaggerDefinitionConstant } from './enums/swagger-definition.constant';
@@ -23,6 +23,7 @@ import { buildOperationResponses } from './lib/operations/operation-responses.bu
 import { buildOperation } from './lib/operations/operation.build';
 import { buildRef } from './lib/ref.build';
 import { buildSwagger } from './lib/swagger.build';
+import { capitalize } from './utils/capitalize.string';
 
 export class SwaggerService {
     public static getInstance(): SwaggerService {
@@ -63,7 +64,7 @@ export class SwaggerService {
     }
 
     public setData(data: Partial<ISwagger>): ISwagger {
-        let initData = this.getData();
+        const initData = this.getData();
         this.data = {
             ...initData,
             ...data
@@ -72,7 +73,7 @@ export class SwaggerService {
     }
 
     public getData(): ISwagger {
-        return _.cloneDeep(this.data);
+        return {...this.data};
     }
 
     public setDefinitions(models: {
@@ -105,12 +106,7 @@ export class SwaggerService {
                     } as ISwaggerDefinitionPropertyItems;
                 }
                 if (property.model) {
-                    if (
-                        _.isEqual(
-                            SwaggerDefinitionConstant.Model.Property.Type.ARRAY,
-                            property.type
-                        )
-                    ) {
+                    if (property.type === SwaggerDefinitionConstant.Model.Property.Type.ARRAY) {
                         newProperty.items = {
                             $ref: buildRef(property.model),
                         } as ISwaggerDefinitionPropertyItems;
@@ -126,7 +122,8 @@ export class SwaggerService {
             }
             definitions[modelIndex] = newDefinition;
         }
-        this.data.definitions = _.mergeWith(this.data.definitions, definitions);
+
+        this.data.definitions = {...this.data.definitions, ...definitions};
     }
 
     public setGlobalResponses(globalResponses: {
@@ -152,10 +149,7 @@ export class SwaggerService {
                 currentController.deprecated = args.deprecated;
             }
         }
-        this.controllerMap[target.name] = _.mergeWith(
-            this.controllerMap[target.name],
-            currentController
-        );
+        this.controllerMap[target.name] = {...this.controllerMap[target.name], ...currentController};
     }
 
     public addSecurityDefinitions(securityDefinitions: {
@@ -185,7 +179,7 @@ export class SwaggerService {
         }
 
         const swaggerBuildDefinitionModelProperty: ISwaggerBuildDefinitionModelProperty = {
-            type: _.lowerCase(propertyType),
+            type: propertyType.toLowerCase(),
         };
         if (args) {
             swaggerBuildDefinitionModelProperty.required = args.required;
@@ -196,7 +190,7 @@ export class SwaggerService {
             swaggerBuildDefinitionModelProperty.format = args.format;
             if (args.model) {
                 swaggerBuildDefinitionModelProperty.model = args.model;
-                if (!_.isEqual('Array', propertyType)) {
+                if (propertyType !== SwaggerDefinitionConstant.Model.Property.Type.ARRAY) {
                     swaggerBuildDefinitionModelProperty.type = undefined;
                 }
             }
@@ -223,11 +217,9 @@ export class SwaggerService {
         if (args) {
             swaggerBuildDefinitionModel.description = args.description;
             if (args.name) {
-                const name: string = _.upperFirst(args.name);
-                this.modelsMap[name] = _.cloneDeep(
-                    this.modelsMap[definitionKey]
-                );
-                if (!_.isEqual(name, definitionKey)) {
+                const name: string = capitalize(args.name);
+                this.modelsMap[name] = {...this.modelsMap[definitionKey]};
+                if (name !== definitionKey) {
                     delete this.modelsMap[definitionKey];
                     delete this.data.definitions[definitionKey];
                 }
@@ -237,19 +229,19 @@ export class SwaggerService {
     }
 
     public addOperation(
-        operation: string,
+        operation: ValidIPathMethods,
         args: IApiOperationArgsBase,
         target: any,
         propertyKey: string | symbol
     ): void {
         const currentPathname = Boolean(args.path?.length) ? args.path! : '/';
         const controller = Object.keys(this.controllerMap).find((controllerIndex) => controllerIndex === target.constructor.name);
-        let currentController: IController = controller ? this.controllerMap[controller] : {};
+        const currentController: IController = controller ? this.controllerMap[controller] : {};
 
         if (!currentController.paths) currentController.paths = {};
         if (!currentController.paths[currentPathname]) currentController.paths[currentPathname] = {} as IPath;
 
-        let currentPath = currentController.paths[currentPathname];
+        const currentPath = currentController.paths[currentPathname];
         currentPath.path = currentPath.path;
         currentPath[operation] = buildOperation(args, target, propertyKey);
 

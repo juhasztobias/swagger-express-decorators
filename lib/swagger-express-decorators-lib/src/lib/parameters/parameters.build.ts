@@ -1,5 +1,4 @@
-import { IApiOperationArgsBaseParameter } from "../../i-api-operation-args.base";
-import { ISwaggerOperationParameter } from "../../i-swagger";
+import { IApiOperationArgsBaseParameter, ISwaggerOperationParameter } from "../../types";
 
 type ParametersType = {
     [key: string]: IApiOperationArgsBaseParameter

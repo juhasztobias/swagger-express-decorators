@@ -1,20 +1,20 @@
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
-import 'reflect-metadata';
 import { Container } from 'inversify';
 import {
     interfaces,
     InversifyExpressServer,
     TYPE,
 } from 'inversify-express-utils';
+import 'reflect-metadata';
+import * as swagger from 'swagger-express-decorators';
 import { CarsController } from './cars/cars.controller';
-import * as swagger from 'swagger-express-ts';
 // tslint:disable-next-line: no-duplicate-imports
-import { SwaggerDefinitionConstant } from 'swagger-express-ts';
-const config = require('../config.json');
+import { SwaggerDefinitionConstant } from 'swagger-express-decorators';
 import { CarController } from './cars/car.controller';
 import { CarBulkController } from './cars/carbulk.controller';
 import { CarsService } from './cars/cars.service';
+const config = require('../config.json');
 
 import * as _ from 'lodash';
 

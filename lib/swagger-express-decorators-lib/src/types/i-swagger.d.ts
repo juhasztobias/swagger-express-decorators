@@ -1,4 +1,4 @@
-import { ISwaggerSecurityDefinition } from '../swagger.builder';
+import { ISwaggerSecurityDefinition } from '.';
 export type ISwaggerLicense = {
     name: string;
     url?: string;

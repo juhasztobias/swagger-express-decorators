@@ -16,4 +16,4 @@ const ResponseDescription = {
 }
 type ResponseDescriptionType = keyof typeof ResponseDescription;
 const isResponseDescription = (value: any): value is ResponseDescriptionType => Object.values(ResponseDescription).includes(value);
-export const getResponseDescription = (responseIndex: string): string | undefined => isResponseDescription(parseInt(responseIndex)) ? ResponseDescription[parseInt(responseIndex)] : undefined;
+export const getResponseDescription = (responseIndex: string): string | undefined => isResponseDescription(responseIndex) ? ResponseDescription[responseIndex] : undefined;

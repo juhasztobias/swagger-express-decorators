@@ -1,17 +1,17 @@
-import { injectable, inject } from 'inversify';
-import 'reflect-metadata';
+import * as express from 'express';
+import { inject, injectable } from 'inversify';
 import {
-    interfaces,
     controller,
     httpGet,
+    interfaces,
     requestParam,
 } from 'inversify-express-utils';
+import 'reflect-metadata';
 import {
+    ApiOperationGet,
     ApiPath,
     SwaggerDefinitionConstant,
-    ApiOperationGet,
-} from 'swagger-express-ts';
-import * as express from 'express';
+} from 'swagger-express-decorators';
 import { CarsService } from './cars.service';
 
 @ApiPath({
@@ -23,7 +23,7 @@ import { CarsService } from './cars.service';
 export class CarController implements interfaces.Controller {
     constructor(
         @inject(CarsService.name) private carsService: CarsService
-    ) {}
+    ) { }
 
     @ApiOperationGet({
         description: 'Get car object',

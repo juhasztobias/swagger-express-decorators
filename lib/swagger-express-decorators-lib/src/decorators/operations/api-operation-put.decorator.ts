@@ -1,4 +1,4 @@
-import { IApiOperationArgsBase } from '../../i-api-operation-args.base';
+import { IApiOperationArgsBase } from '../../types';
 import { ApiOperation } from './api-operation.decorator';
 export interface IApiOperationPutArgs extends IApiOperationArgsBase { }
 

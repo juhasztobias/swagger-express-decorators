@@ -1,5 +1,5 @@
 import { SwaggerDefinitionConstant } from "..";
-import { ISwaggerOperationSchema, ISwaggerOperationSchemaItems } from "../i-swagger";
+import { ISwaggerOperationSchema, ISwaggerOperationSchemaItems } from "../types";
 import { buildRef } from "./ref.build";
 
 const buildObjectSchema = (model: string): ISwaggerOperationSchema => {

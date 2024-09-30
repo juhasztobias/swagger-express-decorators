@@ -535,7 +535,7 @@ Example:
 ```ts
 import { injectable } from 'inversify';
 import 'reflect-metadata';
-import { ApiPath } from 'swagger-express-ts';
+import { ApiPath } from 'swagger-express-decorators';
 import { controller } from 'inversify-express-utils';
 
 @ApiPath({
@@ -566,7 +566,7 @@ import {
     ApiPath,
     ApiOperationDelete,
     SwaggerDefinitionConstant,
-} from 'swagger-express-ts';
+} from 'swagger-express-decorators';
 import 'reflect-metadata';
 
 @ApiPath({
@@ -644,7 +644,7 @@ import {
     ApiPath,
     ApiOperationGet,
     SwaggerDefinitionConstant,
-} from 'swagger-express-ts';
+} from 'swagger-express-decorators';
 import 'reflect-metadata';
 
 @ApiPath({
@@ -707,7 +707,7 @@ import {
     ApiPath,
     ApiOperationPatch,
     SwaggerDefinitionConstant,
-} from 'swagger-express-ts';
+} from 'swagger-express-decorators';
 import 'reflect-metadata';
 
 @ApiPath({
@@ -797,7 +797,7 @@ import {
     ApiPath,
     ApiOperationPost,
     SwaggerDefinitionConstant,
-} from 'swagger-express-ts';
+} from 'swagger-express-decorators';
 import 'reflect-metadata';
 
 @ApiPath({
@@ -872,7 +872,7 @@ import {
     ApiPath,
     ApiOperationPut,
     SwaggerDefinitionConstant,
-} from 'swagger-express-ts';
+} from 'swagger-express-decorators';
 import 'reflect-metadata';
 
 @ApiPath({

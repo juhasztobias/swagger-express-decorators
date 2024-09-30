@@ -1,5 +1,4 @@
-import { IApiBodyOperationArgsBaseParameter } from "../../i-api-operation-args.base";
-import { ISwaggerOperationParameter, ISwaggerOperationSchema, ISwaggerPropertySchemaOperation } from "../../i-swagger";
+import { IApiBodyOperationArgsBaseParameter, ISwaggerOperationParameter, ISwaggerOperationSchema, ISwaggerPropertySchemaOperation } from "../../types";
 import { buildRef } from "../ref.build";
 
 export const buildBodyOperationParameter = (

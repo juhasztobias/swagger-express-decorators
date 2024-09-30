@@ -1,23 +1,20 @@
 import * as express from 'express';
-import { injectable, inject } from 'inversify';
-import 'reflect-metadata';
+import { inject, injectable } from 'inversify';
 import {
     controller,
     httpGet,
-    interfaces,
     httpPost,
-    requestParam,
-    httpPut,
+    interfaces
 } from 'inversify-express-utils';
+import 'reflect-metadata';
 import {
-    ApiPath,
     ApiOperationGet,
     ApiOperationPost,
-    SwaggerDefinitionConstant,
-    ApiOperationPut,
-} from 'swagger-express-ts';
-import { CarsService } from './cars.service';
+    ApiPath,
+    SwaggerDefinitionConstant
+} from 'swagger-express-decorators';
 import { CarModel } from './car.model';
+import { CarsService } from './cars.service';
 
 @ApiPath({
     path: '/cars',
@@ -27,7 +24,7 @@ import { CarModel } from './car.model';
 @controller('/cars')
 @injectable()
 export class CarsController implements interfaces.Controller {
-    constructor(@inject(CarsService.name) private carsService: CarsService) {}
+    constructor(@inject(CarsService.name) private carsService: CarsService) { }
 
     @ApiOperationGet({
         description: 'Get cars objects list',

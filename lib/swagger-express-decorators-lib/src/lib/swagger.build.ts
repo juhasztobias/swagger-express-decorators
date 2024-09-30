@@ -1,4 +1,4 @@
-import { IApiOperationArgsBaseResponse, IController, IPath, ISwagger, ISwaggerPath, ISwaggerTag } from "../types";
+import { IApiOperationArgsBaseResponse, IController, IPath, ISwagger, ISwaggerPath, ISwaggerTag, ValidIPathMethods } from "../types";
 import { capitalize } from "../utils/capitalize.string";
 import { buildSwaggerOperation } from "./operations/swagger.operation.build";
 
@@ -35,7 +35,7 @@ export const buildSwagger = (
             const path: IPath = controller.paths[pathIndex];
             const swaggerPath: ISwaggerPath = {};
 
-            const addMethodToPath = (method: string, path: IPath) =>
+            const addMethodToPath = (method: ValidIPathMethods, path: IPath) =>
                 !path[method] ? undefined : buildSwaggerOperation(data, globalResponses, path[method], controllerMap);
 
             swaggerPath.get = addMethodToPath('get', path);
@@ -45,7 +45,7 @@ export const buildSwagger = (
             swaggerPath.delete = addMethodToPath('delete', path);
 
             data.paths = { ...data.paths };
-            let concatedPath = Boolean(path.path?.length) ? controllerPath.concat(path.path) : controllerPath;
+            const concatedPath = Boolean(path.path?.length) ? controllerPath.concat(path.path) : controllerPath;
             data.paths[concatedPath] = { ...(data.paths[concatedPath] ?? []), ...swaggerPath };
         }
     }

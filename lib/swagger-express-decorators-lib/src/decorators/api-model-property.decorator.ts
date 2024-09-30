@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { SwaggerService } from '../swagger.service';
 
 export interface IApiModelPropertyArgs {

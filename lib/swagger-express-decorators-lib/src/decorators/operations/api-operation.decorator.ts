@@ -1,7 +1,7 @@
-import { IApiOperationArgsBase } from "../../i-api-operation-args.base";
 import { SwaggerService } from "../../swagger.service";
+import { IApiOperationArgsBase, ValidIPathMethods } from "../../types";
 type IApiOperationArgs = IApiOperationArgsBase & {
-    operation: string;
+    operation: ValidIPathMethods;
 }
 
 export function ApiOperation(
@@ -12,7 +12,7 @@ export function ApiOperation(
         propertyKey: string | symbol,
         descriptor: PropertyDescriptor
     ) => {
-        const operation: string = args.operation;
+        const operation: ValidIPathMethods = args.operation;
         const baseArgs: IApiOperationArgsBase & { operation?: string } = args;
         delete baseArgs.operation;
 

@@ -1,5 +1,5 @@
-import _, { capitalize } from "lodash";
 import { IApiOperationArgsBaseResponse, IController, ISwagger, ISwaggerOperation } from "../../types";
+import { capitalize } from "../../utils/capitalize.string";
 import { buildOperationSecurity } from "./operation-security.build";
 
 export const buildSwaggerOperation = (
@@ -8,23 +8,13 @@ export const buildSwaggerOperation = (
     operation: ISwaggerOperation,
     controller: IController
 ): ISwaggerOperation => {
-    if (_.isUndefined(operation.produces)) {
-        operation.produces = data.produces;
-    }
-    if (_.isUndefined(operation.consumes)) {
-        operation.consumes = data.consumes;
-    }
-    if (_.isUndefined(operation.security) && controller.security) {
-        operation.security = buildOperationSecurity(controller.security);
-    }
-    if (_.isUndefined(operation.deprecated) && controller.deprecated) {
-        operation.deprecated = controller.deprecated;
-    }
+    operation.produces ??= data.produces;
+    operation.consumes ??= data.consumes;
+    operation.security ??= controller.security ? buildOperationSecurity(controller.security) : undefined;
+    operation.deprecated ??= controller.deprecated;
+
     if (globalResponses) {
-        operation.responses = _.mergeWith(
-            _.cloneDeep(globalResponses),
-            operation.responses
-        );
+        operation.responses = {...globalResponses, ...operation.responses};
     }
 
     const controllerName = capitalize(controller.name);

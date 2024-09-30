@@ -2,11 +2,18 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
         "declaration": true,
-        "outDir": "./dist/swagger-express-ts",
+        "outDir": "./dist/swagger-express-decorators",
         "baseUrl": "./",
-        "typeRoots": ["node_modules/@types"],
+        "typeRoots": [
+            "node_modules/@types"
+        ],
         "paths": {}
     },
-    "exclude": ["node_modules", "lib/swagger-express-ts-lib/src/**/*.spec.ts"],
-    "include": ["lib/swagger-express-ts-lib/src/**/*.ts"]
+    "exclude": [
+        "node_modules",
+        "lib/swagger-express-decorators-lib/src/**/*.spec.ts"
+    ],
+    "include": [
+        "lib/swagger-express-decorators-lib/src/**/*.ts"
+    ]
 }

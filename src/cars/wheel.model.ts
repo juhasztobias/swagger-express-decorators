@@ -1,4 +1,4 @@
-import { ApiModel, ApiModelProperty } from 'swagger-express-ts';
+import { ApiModel, ApiModelProperty } from 'swagger-express-decorators';
 import { CarModel } from './car.model';
 
 @ApiModel({
