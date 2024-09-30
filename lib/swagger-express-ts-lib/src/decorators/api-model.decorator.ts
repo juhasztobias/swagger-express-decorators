@@ -1,5 +1,4 @@
-import { SwaggerService } from './swagger.service';
-import { IApiOperationArgsBase } from './i-api-operation-args.base';
+import { SwaggerService } from '../swagger.service';
 
 export interface IApiModelArgs {
     description?: string;
@@ -8,6 +7,7 @@ export interface IApiModelArgs {
 
 export function ApiModel(args?: IApiModelArgs): ClassDecorator {
     return (target: any) => {
+        if (!args) return;
         SwaggerService.getInstance().addApiModel(args, target);
     };
 }

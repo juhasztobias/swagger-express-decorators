@@ -1,8 +1,10 @@
-import { Router, Request, Response, NextFunction } from 'express';
-import { SwaggerService } from './swagger.service';
+// TODO: Remove express from dependencies and make it work for any framework (e.g. express, koa, fastify, etc.)
 import * as assert from 'assert';
-import { build, ISwaggerBuildDefinition } from './swagger.builder';
-import { ISwagger } from './i-swagger';
+import { NextFunction, Request, Response, Router } from 'express';
+import { build } from './swagger.builder';
+import { SwaggerService } from './swagger.service';
+import { ISwaggerBuildDefinition } from './types';
+import { ISwagger } from './types/i-swagger';
 
 export interface ISwaggerExpressOptions {
     /**

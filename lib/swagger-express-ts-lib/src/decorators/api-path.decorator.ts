@@ -1,4 +1,4 @@
-import { SwaggerService } from './swagger.service';
+import { SwaggerService } from '../swagger.service';
 export interface IApiPathArgs {
     path: string;
     name: string;

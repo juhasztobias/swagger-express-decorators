@@ -1,16 +1,16 @@
-import { ISwaggerSecurityDefinition } from './swagger.builder';
-export interface ISwaggerLicense {
+import { ISwaggerSecurityDefinition } from '../swagger.builder';
+export type ISwaggerLicense = {
     name: string;
     url?: string;
 }
 
-export interface ISwaggerContact {
+export type ISwaggerContact = {
     name?: string;
     url?: string;
     email?: string;
 }
 
-export interface ISwaggerInfo {
+export type ISwaggerInfo = {
     title: string;
     description?: string;
     termsOfService?: string;
@@ -19,29 +19,29 @@ export interface ISwaggerInfo {
     version: string;
 }
 
-export interface ISwaggerVariableServer {
+export type ISwaggerVariableServer = {
     enum?: [string];
     default: string;
     description?: string;
 }
 
-export interface ISwaggerServer {
+export type ISwaggerServer = {
     url: string;
     description?: string;
     variables: [ISwaggerVariableServer]; // TODO : Fix it
 }
 
-export interface ISwaggerExternalDocs {
+export type ISwaggerExternalDocs = {
     description?: string;
     url: string;
 }
 
-export interface ISwaggerOperationParameter {
+export type ISwaggerOperationParameter = {
     name: string;
     in: string;
     type?: string;
     items?: {
-      type?: string;
+        type?: string;
     };
     format?: string;
     description?: string;
@@ -54,29 +54,29 @@ export interface ISwaggerOperationParameter {
     schema?: ISwaggerOperationSchema;
 }
 
-export interface ISwaggerPropertySchemaOperation {
+export type ISwaggerPropertySchemaOperation = {
     type: string;
 }
 
-export interface ISwaggerOperationSchema {
+export type ISwaggerOperationSchema = {
     type?: string;
     items?: { $ref: string };
     $ref?: string;
     format?: string;
     required?: string[]; // Array content name of property
-    properties?: {[key: string] : ISwaggerPropertySchemaOperation}
+    properties?: { [key: string]: ISwaggerPropertySchemaOperation }
 }
 
-export interface ISwaggerOperationSchemaItems {
+export type ISwaggerOperationSchemaItems = {
     $ref: string;
 }
 
-export interface ISwaggerOperationResponse {
+export type ISwaggerOperationResponse = {
     description?: string;
     schema?: ISwaggerOperationSchema;
 }
 
-export interface ISwaggerOperation {
+export type ISwaggerOperation = {
     tags?: string[];
     summary?: string;
     description?: string;
@@ -89,12 +89,12 @@ export interface ISwaggerOperation {
     deprecated?: boolean;
 }
 
-export interface ISwaggerTag {
+export type ISwaggerTag = {
     name: string;
     description: string;
 }
 
-export interface ISwaggerPath {
+export type ISwaggerPath = {
     get?: ISwaggerOperation;
     post?: ISwaggerOperation;
     put?: ISwaggerOperation;
@@ -102,12 +102,12 @@ export interface ISwaggerPath {
     delete?: ISwaggerOperation;
 }
 
-export interface ISwaggerDefinitionPropertyItems {
+export type ISwaggerDefinitionPropertyItems = {
     $ref?: string;
     type?: string;
 }
 
-export interface ISwaggerDefinitionProperty {
+export type ISwaggerDefinitionProperty = {
     type?: string; // Example : SwaggerDefinition.Definition.Property.Type.INTEGER
     format?: string; // Example : SwaggerDefinition.Definition.Property.Format.INT_64
     required?: boolean;
@@ -115,14 +115,14 @@ export interface ISwaggerDefinitionProperty {
     enum?: string[];
     items?: ISwaggerDefinitionPropertyItems;
     $ref?: string;
-    example?: any []
+    example?: any[]
 }
 
-export interface ISwaggerDefinitionXML {
+export type ISwaggerDefinitionXML = {
     name: string;
 }
 
-export interface ISwaggerDefinition {
+export type ISwaggerDefinition = {
     type: string; // Example : SwaggerDefinition.Definition.Type.OBJECT
     required?: string[];
     properties: { [key: string]: ISwaggerDefinitionProperty };
@@ -130,7 +130,7 @@ export interface ISwaggerDefinition {
     description?: string;
 }
 
-export interface ISwagger {
+export type ISwagger = {
     basePath?: string;
     openapi?: string;
     info: ISwaggerInfo;

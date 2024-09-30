@@ -1,4 +1,4 @@
-export interface IApiOperationArgsBaseParameter {
+export type IApiOperationArgsBaseParameter = {
     name?: string; // Override [key: string]. Default [key: string].
     description?: string;
     type?: string;
@@ -10,28 +10,27 @@ export interface IApiOperationArgsBaseParameter {
     deprecated?: boolean;
     allowEmptyValue?: boolean;
     items?: {
-      type?: string;
+        type?: string;
     }
 }
 
-export interface IApiPropertyBodyOperationArgsBaseParameter {
+export type IApiPropertyBodyOperationArgsBaseParameter = {
     type: string;
     required?: boolean;
 }
 
-export interface IApiBodyOperationArgsBaseParameter
-    extends IApiOperationArgsBaseParameter {
+export type IApiBodyOperationArgsBaseParameter = IApiOperationArgsBaseParameter & {
     properties?: { [key: string]: IApiPropertyBodyOperationArgsBaseParameter };
     model?: string;
 }
 
-export interface IApiOperationArgsBaseResponse {
+export type IApiOperationArgsBaseResponse = {
     description?: string;
     type?: string;
     model?: string;
 }
 
-export interface IApiOperationArgsBaseParameters {
+export type IApiOperationArgsBaseParameters = {
     header?: { [key: string]: IApiOperationArgsBaseParameter };
     path?: { [key: string]: IApiOperationArgsBaseParameter };
     query?: { [key: string]: IApiOperationArgsBaseParameter };
@@ -39,7 +38,7 @@ export interface IApiOperationArgsBaseParameters {
     formData?: { [key: string]: IApiOperationArgsBaseParameter };
 }
 
-export interface IApiOperationArgsBase {
+export type IApiOperationArgsBase = {
     /**
      * Define description
      * Optional.

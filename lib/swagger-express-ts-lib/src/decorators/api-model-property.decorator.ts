@@ -1,5 +1,4 @@
-import { SwaggerService } from './swagger.service';
-import { IApiOperationArgsBase } from './i-api-operation-args.base';
+import { SwaggerService } from '../swagger.service';
 
 export interface IApiModelPropertyArgs {
     /**
@@ -54,6 +53,7 @@ export function ApiModelProperty(
     args?: IApiModelPropertyArgs
 ): PropertyDecorator {
     return (target: any, propertyKey: string | symbol) => {
+        if (!args) return;
         let propertyType = '';
 
         if (typeof args.itemType !== 'undefined' && args.itemType !== null) {
@@ -74,7 +74,7 @@ export function ApiModelProperty(
                 }
             }
         }
-        
+
         SwaggerService.getInstance().addApiModelProperty(
             args,
             target,
