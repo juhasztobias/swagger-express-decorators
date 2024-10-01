@@ -136,6 +136,7 @@ export class SwaggerService {
             name: args.name,
             paths: {},
         };
+
         for (const controllerIndex in this.controllerMap) {
             const controller: IController = this.controllerMap[controllerIndex];
             if (controllerIndex === target.name) {
@@ -248,7 +249,7 @@ export class SwaggerService {
         if (!currentController.paths[currentPathname]) currentController.paths[currentPathname] = {} as IPath;
 
         const currentPath = currentController.paths[currentPathname];
-        currentPath.path = currentPath.path;
+        currentPath.path = currentPathname;
         currentPath[operation] = buildOperation(args, target, propertyKey);
 
         this.controllerMap[target.constructor.name] = currentController;
