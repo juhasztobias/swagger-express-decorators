@@ -1,4 +1,12 @@
 <a name="1.0.1"></a>
+
+# [2.0.0-alpha.5](2024-10-1)
+## Fixes
+- Fixed issue with global responses
+- Fixed issue with path
+- Fixed issue with tags
+
+
 # [2.0.0-alpha.3](2024-09-30)
 ## Features
 ### Breaking changes: 
