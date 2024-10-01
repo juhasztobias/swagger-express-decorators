@@ -20,8 +20,8 @@ export const buildSwagger = (
         const controllerArr = controller.paths ? Object.values(controller.paths) : [];
 
         const controllerName = capitalize(controller.name);
-        if (!data.tags?.find((tag: ISwaggerTag) => tag.name === controllerName)) {
-            data.tags ??= [];
+        data.tags ??= [];
+        if (data.tags.some((tag: ISwaggerTag) => tag.name === controllerName)) {
             data.tags.push({
                 name: controllerName,
                 description: controller.description,
@@ -40,7 +40,7 @@ export const buildSwagger = (
             const swaggerPath: ISwaggerPath = {};
 
             const addMethodToPath = (method: ValidIPathMethods, path: IPath) =>
-                !path[method] ? undefined : buildSwaggerOperation(data, globalResponses, path[method], controllerMap);
+                !path[method] ? undefined : buildSwaggerOperation(data, globalResponses, path[method], controller);
 
             swaggerPath.get = addMethodToPath('get', path);
             swaggerPath.post = addMethodToPath('post', path);

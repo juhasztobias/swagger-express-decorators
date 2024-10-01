@@ -14,14 +14,11 @@ export const buildSwaggerOperation = (
     operation.deprecated ??= controller.deprecated;
 
     if (globalResponses) {
-        operation.responses = {...globalResponses, ...operation.responses};
+        operation.responses = { ...globalResponses, ...operation.responses };
     }
 
     const controllerName = capitalize(controller.name);
-    if (operation.tags && operation.tags.length > 0) {
-        operation.tags.unshift(controllerName);
-    } else {
-        operation.tags = [controllerName];
-    }
+    operation.tags ??= [];
+    operation.tags.unshift(controllerName);
     return operation;
 }
