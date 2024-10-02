@@ -1,5 +1,15 @@
 <a name="1.0.1"></a>
 
+# [2.0.1](2024-10-1)
+## Changes related to the swagger-express-ts package 
+
+## What's new from swagger-express-ts (v1.1.0)
+  - Added source map for typescript
+  - Added build script
+  - Package is now almost x3 lighter than before
+  - Added support for almost any framework by simply adding swaggerJSON function. See [swaggerJSON](./wiki/swagger-json.md)
+  - Removed almost all dependencies and when not possible, replaced them with up-to-date dependencies
+  
 # [2.0.0-alpha.5](2024-10-1)
 ## Fixes
 - Fixed issue with global responses

@@ -5,22 +5,15 @@
 # swagger-express-decorators
 Automatically generate and serve swagger.json v2.0. Based on and forked from [olivierlsc/swagger-express-ts](https://github.com/olivierlsc/swagger-express-ts).
 
-## Breaking changes
-- Removed unused dependencies
-- Refactored code
-- Made it work when using Babel, see more in [babel-plugins-proposal-decorators](https://babeljs.io/docs/en/babel-plugin-proposal-decorators)
-- We removed lodash as a dependency
-- Created swaggerJSON function that can be used to generate the swagger JSON object and then returned to the client with any framework, since it's only returning the swagger JSON object, see [swaggerJSON](./wiki/swagger-json.md)
+## What's new from swagger-express-ts (v1.1.0)
+  - Added source map for typescript
+  - Added build script
+  - Package is now almost x3 lighter than before
+  - Added support for almost any framework by simply adding swaggerJSON function. See [swaggerJSON](./wiki/swagger-json.md)
+  - Removed almost all dependencies and when not possible, replaced them with up-to-date dependencies
+  - Made it work when using Babel, see more in [babel-plugins-proposal-decorators](https://babeljs.io/docs/en/babel-plugin-proposal-decorators)
 
-For more information on the changes, see [CHANGELOG.md](./CHANGELOG.md).
-
-## Next steps
-- Add support for OpenAPI 3.0
-- Add support for all frameworks
-- Improve test coverage to ensure stability
-- Maintain code examples and documentation
-
-We are going to work on these items in the near future. Feel free to contribute to the project by submitting pull requests or giving us feedback.
+  For more information on the changes, see [CHANGELOG.md](./CHANGELOG.md).
 
 ## Getting started
 
