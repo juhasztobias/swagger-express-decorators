@@ -12,17 +12,16 @@ We welcome any type of contribution, not only code. You can help with
 
 In any case, don't forget to be awesome and have fun.
 
-## HOW TO BE A REPOSITORY CONTRIBUTOR
+## How to contribute
 
-Before you start, please read the [Code of Conduct](CODE_OF_CONDUCT.md).
-
-First of all, thank you for considering contributing to swagger-express-decorators. If you want to be a contributor to swagger-express-decorators, please follow these steps:
+If you want to be a contributor to swagger-express-decorators, please follow these steps:
 
 1. Go to the [Discussions](https://github.com/juhasztobias/swagger-express-decorators/discussions/2) page and make a request to join as a contributor.
 2. Once you have been accepted, you can start working on the project. 
 3. Since then you will be able to create a new branch with the name of the issue you will be working on. For example, if you are working on issue #123, you can name your branch `issue-123`.
-4. Once you have finished your work, you can create a pull request to the `develop` branch.
-5. Once your pull request is approved, it will be merged into the `develop` branch.
+4. Please, follow the Commitizen convention. See [Commitizen](https://github.com/commitizen/cz-cli) for more information. There's a vscode extension that can help you with that.
+5. Once you have finished your work, you can create a pull request to the `develop` branch.
+6. Once your pull request is approved, it will be merged into the `develop` branch.
 
 ## How to report a bug
 
@@ -33,11 +32,10 @@ Before reporting a bug, please make sure that you have read the [README](README.
 If you are reporting a bug, please include the following information:
 
 - Title must be clear and descriptive: `[Bug]: Short description`
-- Tag: bug
-- swagger-express-decorators version
+- Tag it as a bug: `[Bug]`
+- swagger-express-decorators version, ej: `v2.0.1` 
 - Node.js version
-- Operating system
-- Browser version
+- Framework name and version (if applicable)
 - Reproducible steps with code
 - If possible, a link to a live example or a github repo that reproduces the bug
 - Any other relevant information as screenshots, gifs, etc.
@@ -47,3 +45,14 @@ It's important to include as much information as possible. The more information 
 ## How to suggest a feature
 
 You can suggest any feature you want. If you have any ideas, please create a new issue in the [Issues](https://github.com/juhasztobias/swagger-express-decorators/issues) page.
+
+- Title must be clear and descriptive: `[Feature]: Short description`
+- Tag it as a feature: `[Feature]`
+- Describe the feature you want to see in the issue
+
+
+## Any questions?
+
+If you have any questions, please create a new discussion in the [Discussions](https://github.com/juhasztobias/swagger-express-decorators/discussions) page.
+
+Happy coding!
