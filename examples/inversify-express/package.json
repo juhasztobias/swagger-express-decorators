@@ -51,7 +51,7 @@
         "@types/lodash": "^4.14.170",
         "body-parser": "^1.19.0",
         "compression": "^1.7.4",
-        "express": "^4.17.1",
+        "express": "^4.21.1",
         "helmet": "^4.6.0",
         "inversify": "^6.0.2",
         "inversify-express-utils": "^6.4.6",
