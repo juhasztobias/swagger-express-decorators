@@ -55,7 +55,7 @@
         "helmet": "^4.6.0",
         "inversify": "^6.0.2",
         "inversify-express-utils": "^6.4.9",
-        "lodash": "^4.17.21",
+        "lodash": "^4.17.23",
         "reflect-metadata": "^0.2.2",
         "save": "^2.4.0"
     },
