@@ -4,6 +4,11 @@ import { buildSwaggerOperation } from "./operations/swagger.operation.build";
 
 type GlobalResponseType = { [key: string]: IApiOperationArgsBaseResponse };
 type ControllerMapType = { [key: string]: IController };
+let cachedBuildSwagger: {
+    data: ISwagger,
+    controllerMap: ControllerMapType,
+    globalResponses: GlobalResponseType,
+} | null = null;
 
 export const buildSwagger = (
     data: ISwagger,
@@ -14,6 +19,8 @@ export const buildSwagger = (
     controllerMap: ControllerMapType;
     globalResponses: GlobalResponseType;
 } => {
+    if (cachedBuildSwagger) return cachedBuildSwagger;
+
     for (const controllerIndex in controllerMap) {
         const controller: IController = controllerMap[controllerIndex];
         const controllerPath = controller.path ?? '/';
@@ -54,9 +61,11 @@ export const buildSwagger = (
         }
     }
 
-    return {
+    cachedBuildSwagger = {
         data,
         controllerMap,
         globalResponses
     };
+
+    return cachedBuildSwagger;
 }

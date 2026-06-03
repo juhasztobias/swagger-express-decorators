@@ -1,0 +1,116 @@
+{
+  "name": "swagger-express-decorators",
+  "version": "2.0.0",
+  "description": "Generate and serve swagger.json",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "typings": "index.d.ts",
+  "scripts": {
+    "dev": "echo \"Developing...\" && nodemon",
+    "start": "echo \"Starting...\" && npm run build && ts-node --project tsconfig.json src/index.ts",
+    "publish": "npm publish dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juhasztobias/swagger-express-decorators.git"
+  },
+  "author": "Tobias Juhasz",
+  "license": "MIT",
+  "keywords": [
+    "inversify",
+    "inversifyjs",
+    "swagger",
+    "swagger2",
+    "swagger-ui",
+    "typescript",
+    "expressjs",
+    "express",
+    "api rest",
+    "documentation",
+    "decorator",
+    "generator",
+    "swagger.json",
+    "json",
+    "rest"
+  ],
+  "bugs": {
+    "url": "https://github.com/juhasztobias/swagger-express-decorators/issues"
+  },
+  "homepage": "https://github.com/juhasztobias/swagger-express-decorators#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.8.1",
+    "express": "^4.21.1",
+    "helmet": "^4.6.0",
+    "inversify": "^8.1.0",
+    "lodash": "^4.17.21",
+    "reflect-metadata": ">=0.2.2",
+    "save": "^2.4.0",
+    "swagger-express-decorators": "file:../../dist"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/chai": "^4.2.18",
+    "@types/compression": "1.7.5",
+    "@types/express": "^4.17.12",
+    "@types/helmet": "0.0.48",
+    "@types/inversify": "^2.0.33",
+    "@types/lodash": "^4.17.12",
+    "@types/mocha": "^8.2.2",
+    "chai": "^4.3.4",
+    "dotenv": "^17.4.2",
+    "mocha": "^10.7.3",
+    "nodemon": "^2.0.7",
+    "nyc": "^15.1.0",
+    "prettier": "2.2.1",
+    "pretty-quick": "^3.1.1",
+    "rimraf": "^3.0.2",
+    "source-map-support": "^0.5.19",
+    "swagger-ui-dist": "^5.17.14",
+    "ts-node": "^9.1.1",
+    "typescript": "^5.6.2"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts",
+      "lib/swagger-express-decorators-lib/src/**/*.ts"
+    ],
+    "exclude": [
+      "src/index.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "html",
+      "cobertura"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "watch": [
+      "src/**/*.ts",
+      "lib/**/*.ts"
+    ],
+    "ext": "ts",
+    "ignore": [
+      "test/*",
+      "wiki/*",
+      "swagger/*",
+      "node_modules/*",
+      "dist/*"
+    ],
+    "delay": "2500",
+    "exec": "ts-node --project tsconfig.json src/index.ts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}

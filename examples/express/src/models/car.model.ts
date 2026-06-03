@@ -1,5 +1,5 @@
 import { ApiModel, ApiModelProperty } from 'swagger-express-decorators';
-import { ConstructorModel } from '../constructors/constructor.model';
+import { ConstructorModel } from './constructors/constructor.model';
 import { WheelModel } from './wheel.model';
 
 @ApiModel({

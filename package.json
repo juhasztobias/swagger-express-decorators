@@ -1,53 +1,59 @@
 {
-    "name": "swagger-express-decorators",
-    "version": "2.0.1",
-    "description": "Generate and serve swagger.json",
-    "main": "index.js",
-    "types": "index.d.ts",
-    "typings": "index.d.ts",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/juhasztobias/swagger-express-decorators.git"
-    },
-    "scripts": {
-        "build": "tsc --project tsconfig.json && cp package.json dist/package.json && cp README.md dist/README.md && cp CHANGELOG.md dist/CHANGELOG.md && cp LICENSE dist/LICENSE"
-    },
-    "author": "Tobias Juhasz",
-    "license": "MIT",
-    "keywords": [
-        "swagger",
-        "swagger2",
-        "swagger-ui",
-        "typescript",
-        "expressjs",
-        "express",
-        "api",
-        "api documentation",
-        "api rest",
-        "documentation",
-        "decorator",
-        "decorators",
-        "generator",
-        "swagger.json",
-        "json",
-        "rest"
-    ],
-    "bugs": {
-        "url": "https://github.com/juhasztobias/swagger-express-decorators/issues"
-    },
-    "homepage": "https://github.com/juhasztobias/swagger-express-decorators#readme",
-    "peerDependencies": {
-        "@types/express": "^4.17.11",
-        "express": "^4.17.1"
-    },
-    "dependencies": {
-        "reflect-metadata": "^0.2.2"
-    },
-    "maintainers": [
-        {
-            "name": "Tobias Juhasz",
-            "email": "contacto@tobiasjuhasz.com",
-            "url": "https://github.com/juhasztobias"
-        }
-    ]
+  "name": "swagger-express-decorators",
+  "version": "2.0.1",
+  "description": "Generate and serve swagger.json",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "typings": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juhasztobias/swagger-express-decorators.git"
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.json && cp package.json dist/package.json && cp README.md dist/README.md && cp CHANGELOG.md dist/CHANGELOG.md && cp LICENSE dist/LICENSE",
+    "test": "mocha tests/**/*.spec.ts"
+  },
+  "author": "Tobias Juhasz",
+  "license": "MIT",
+  "keywords": [
+    "swagger",
+    "swagger2",
+    "swagger-ui",
+    "typescript",
+    "expressjs",
+    "express",
+    "api",
+    "api documentation",
+    "api rest",
+    "documentation",
+    "decorator",
+    "decorators",
+    "generator",
+    "swagger.json",
+    "json",
+    "rest"
+  ],
+  "bugs": {
+    "url": "https://github.com/juhasztobias/swagger-express-decorators/issues"
+  },
+  "homepage": "https://github.com/juhasztobias/swagger-express-decorators#readme",
+  "peerDependencies": {
+    "@types/express": "^4.17.11",
+    "express": "^4.17.1",
+    "reflect-metadata": ">=0.2.2"
+  },
+  "maintainers": [
+    {
+      "name": "Tobias Juhasz",
+      "email": "dev@tobiasjuhasz.com",
+      "url": "https://github.com/juhasztobias"
+    }
+  ],
+  "devDependencies": {
+    "@types/chai": "^5.2.3",
+    "@types/mocha": "^10.0.10",
+    "chai": "^6.2.2",
+    "mocha": "^11.7.6",
+    "typescript": "^5.6.2"
+  }
 }

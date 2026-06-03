@@ -1,9 +1,7 @@
-import { injectable } from 'inversify';
-import 'reflect-metadata';
-import { CarModel } from './car.model';
 import * as _ from 'lodash';
+import 'reflect-metadata';
+import { CarModel } from '../models/car.model';
 
-@injectable()
 export class CarsService {
     private carsList: CarModel[] = [
         {
@@ -33,7 +31,7 @@ export class CarsService {
     }
 
     public getCarsByIds(ids: string[]): CarModel[] {
-      return this.carsList.filter(car => ids.includes(car.id));
+        return this.carsList.filter(car => ids.includes(car.id));
     }
 
     public addCar(car: CarModel): CarModel {

@@ -1,5 +1,5 @@
 import * as chai from 'chai';
-import { SwaggerDefinitionConstant } from '../src';
+import { SwaggerDefinitionConstant } from '../src/index.ts';
 const expect = chai.expect;
 
 describe('SwaggerDefinitionConstant', () => {

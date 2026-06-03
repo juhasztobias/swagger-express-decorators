@@ -1,5 +1,6 @@
 import { SwaggerDefinitionConstant } from "../..";
 import { IApiOperationArgsBase, ISwaggerOperation } from "../../interfaces";
+import { isNotEmptyObject } from "../../utils/not-empty.object";
 import { buildBodyOperationParameter } from "../parameters/body.parameter.build";
 import { buildParameters } from "../parameters/parameters.build";
 import { buildOperationResponses } from "./operation-responses.build";
@@ -20,7 +21,7 @@ export const buildOperation = (
             | 'consumes'
         >;
 
-    const operation: ISwaggerOperation = {
+    let operation: ISwaggerOperation = {
         operationId: propertyKey,
         ...argsCopy,
     };
@@ -28,8 +29,8 @@ export const buildOperation = (
     Boolean(args.produces?.length) && (operation.produces = args.produces);
     Boolean(args.consumes?.length) && (operation.consumes = args.consumes);
     Boolean(args.tags?.length) && (operation.tags = args.tags);
-    Boolean(args.responses?.length) && (operation.responses = buildOperationResponses(args.responses));
-    Boolean(args.security?.length) && (operation.security = buildOperationSecurity(args.security!));
+    isNotEmptyObject(args.responses) && (operation.responses = buildOperationResponses(args.responses));
+    isNotEmptyObject(args.security) && (operation.security = buildOperationSecurity(args.security!));
 
     if (args.parameters) {
         operation.parameters = [

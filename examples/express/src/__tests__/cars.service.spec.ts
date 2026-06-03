@@ -1,6 +1,6 @@
 import * as chai from 'chai';
-import { CarsService } from './cars.service';
-import { CarModel } from './car.model';
+import { CarModel } from '../models/car.model';
+import { CarsService } from '../services/cars.service';
 const expect = chai.expect;
 
 describe('CarsService', () => {

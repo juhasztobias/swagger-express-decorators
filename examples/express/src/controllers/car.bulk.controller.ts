@@ -1,18 +1,14 @@
 import * as express from 'express';
-import { inject, injectable } from 'inversify';
-import { controller, httpGet, httpPost, interfaces } from 'inversify-express-utils';
 import 'reflect-metadata';
 import { ApiOperationGet, ApiOperationPost, ApiPath, SwaggerDefinitionConstant } from 'swagger-express-decorators';
-import { CarsService } from './cars.service';
+import { CarsService } from '../services/cars.service';
 
 @ApiPath({
-  name: 'Cars',
-  path: '/cars-bulk',
+  name: 'CarBulk',
+  path: '/car/bulk',
 })
-@controller('/cars-bulk')
-@injectable()
-export class CarBulkController implements interfaces.Controller {
-  constructor(@inject(CarsService.name) private carsService: CarsService) { }
+export class CarBulkController {
+  constructor(private carsService: CarsService) { }
 
   @ApiOperationPost({
     description: 'Post car objects',
@@ -27,18 +23,19 @@ export class CarBulkController implements interfaces.Controller {
     },
     responses: {
       200: {
+        description: 'Success',
         model: 'Car',
       },
       400: { description: 'Parameters fail' },
     },
   })
-  @httpPost('/')
   public postBulkCar(
     request: express.Request,
     response: express.Response
   ): void {
     if (!request.body) {
-      return response.status(400).end();
+      response.status(400).end();
+      return;
     }
 
     response.json(request.body);
@@ -60,6 +57,7 @@ export class CarBulkController implements interfaces.Controller {
     },
     responses: {
       200: {
+        description: 'Success',
         type: SwaggerDefinitionConstant.Response.Type.ARRAY,
         model: 'Car',
       },
@@ -68,7 +66,6 @@ export class CarBulkController implements interfaces.Controller {
       apiKeyHeader: [],
     },
   })
-  @httpGet('/')
   public getCarsByIds(
     request: express.Request,
     response: express.Response

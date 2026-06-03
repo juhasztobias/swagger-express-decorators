@@ -9,3 +9,10 @@ export type IPath = {
     delete?: ISwaggerOperation;
 }
 export type ValidIPathMethods = 'get' | 'post' | 'put' | 'patch' | 'delete';
+// export enum ValidIPathMethods {
+//     get = 'get',
+//     post = 'post',
+//     put = 'put',
+//     patch = 'patch',
+//     delete = 'delete',
+// }

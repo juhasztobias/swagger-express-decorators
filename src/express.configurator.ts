@@ -72,6 +72,22 @@ export const swaggerJSON = (
     return data;
 }
 
+/**
+ * @deprecated Use swaggerJSON function instead. Will be removed in the next major version.
+ * @example
+ * ```js
+ * import * as swagger from 'swagger-express-decorators';
+ * import express from 'express';
+ * 
+ * const app = express();
+ * app.use(express.json());
+ * app.use(express.urlencoded({ extended: true }));
+ * app.use(swagger.express({ definition: { ... } }));
+ * 
+ * app.listen(3000, () => {
+ *   console.log('Server is running on port 3000');
+ * });
+ */
 export function express(options?: ISwaggerExpressOptions): Router {
     let path: string = '/api-docs/swagger.json';
     const router: Router = Router();

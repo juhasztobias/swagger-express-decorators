@@ -1,11 +1,4 @@
 import * as express from 'express';
-import { inject, injectable } from 'inversify';
-import {
-    controller,
-    httpGet,
-    httpPost,
-    interfaces
-} from 'inversify-express-utils';
 import 'reflect-metadata';
 import {
     ApiOperationGet,
@@ -13,18 +6,17 @@ import {
     ApiPath,
     SwaggerDefinitionConstant
 } from 'swagger-express-decorators';
-import { CarModel } from './car.model';
-import { CarsService } from './cars.service';
+import { CarModel } from '../models/car.model';
+import { CarsService } from '../services/cars.service';
 
 @ApiPath({
     path: '/cars',
     name: 'Cars',
     security: { apiKeyHeader: [] },
 })
-@controller('/cars')
-@injectable()
-export class CarsController implements interfaces.Controller {
-    constructor(@inject(CarsService.name) private carsService: CarsService) { }
+export class CarsController {
+    [x: string]: any;
+    constructor(private carsService: CarsService) { }
 
     @ApiOperationGet({
         description: 'Get cars objects list',
@@ -39,7 +31,6 @@ export class CarsController implements interfaces.Controller {
             apiKeyHeader: [],
         },
     })
-    @httpGet('/')
     public getCars(
         request: express.Request,
         response: express.Response,
@@ -65,14 +56,14 @@ export class CarsController implements interfaces.Controller {
             400: { description: 'Parameters fail' },
         },
     })
-    @httpPost('/')
     public postCar(
         request: express.Request,
         response: express.Response,
         next: express.NextFunction
     ): void {
         if (!request.body) {
-            return response.status(400).end();
+            response.status(400).end();
+            return;
         }
         const newCar = new CarModel();
         newCar.id = request.body.id;
