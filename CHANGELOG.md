@@ -1,4 +1,30 @@
-<a name="1.0.1"></a>
+<a name="2.0.2"></a>
+
+# [2.0.2](2026-06-03)
+
+## Features
+
+- Added plain **Express** example under `examples/express` (controllers, routes, services, tests).
+- Added `npm test` script with Mocha, Chai, and TypeScript dev dependencies.
+
+## Deprecations
+
+- `swagger.express()` is deprecated in favor of [`swaggerJSON`](./wiki/swagger-json.md). It will be removed in the next major version.
+
+## Fixes
+
+- Operation `responses` and `security` are only attached when the decorator args are non-empty objects (fixes incorrect `.length` checks on object maps).
+
+## Internal
+
+- `buildSwagger()` caches its result to avoid redundant rebuilds.
+- `reflect-metadata` is now a **peer dependency**; consumers must install it explicitly.
+
+## Removed
+
+- Removed the `examples/inversify-express` example and related config.
+
+---
 
 # [2.0.1](2024-10-1)
 ## Changes related to the swagger-express-ts package 
